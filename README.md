@@ -1,3 +1,3 @@
 # Job-Scrapper
 
-Python got so much better!
+Scrapping job posts in Saram In, Job Korea
