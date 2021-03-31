@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Scrapper</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+            body {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: 'Dela Gothic One', cursive;
+            }
+            h1 {
+                color: lightblue;
+                font-size: 50px;
+            }
+            input {
+                padding: 10px;
+                border-radius: 15px;
+                width: 450px;
+                border: 1px solid lightblue;
+            }
+            input:focus {
+                outline: none;
+            }
+            button {
+                border-radius: 15px;
+                padding: 10px;
+                background-color: lightblue;
+                border: none;
+                font-weight: 600;
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.6);
+            }
+        </style>
+    </head>
+    <body>
+        <header><h1>!!!Job Scrapper!!!</h1></header>
+        <main>
+            <form action="/search" method="get">
+                <input type="text" placeholder="원하는 직종을 입력해주세요." required name="word" />
+                <button>찾기</button>
+            </form>
+        </main>
+    </body>
+</html>

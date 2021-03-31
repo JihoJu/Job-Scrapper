@@ -24,7 +24,7 @@ def extract_job(html):
     return {"title": title, "company": company, "apply_link": f"https://www.saramin.co.kr{apply_link}"}
 
 
-def saramIn_get_jobs():
-    url = "https://www.saramin.co.kr/zf_user/search/recruit?searchType=search&searchword=react"
+def saramIn_get_jobs(word):
+    url = f"https://www.saramin.co.kr/zf_user/search/recruit?searchType=search&searchword={word}"
     jobs = extract_jobs(url)
     return jobs

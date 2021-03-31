@@ -13,14 +13,14 @@ def extract_last_page(url):
 
 def extract_jobs(url, last_page):
     jobs = []
-    # for page in range(last_page): => 결과값 빨리 보기 위함
-    results = requests.get(f"{url}&Page_No={1}")  # page+1로 변경해주기
-    soup = BeautifulSoup(results.text, "html.parser")
-    posts = soup.find("div", {"class": "lists-cnt"}
-                      ).find_all("li", {"class": "list-post"})
-    for post in posts:
-        job = extract_job(post)
-        jobs.append(job)
+    for page in range(last_page):
+        results = requests.get(f"{url}&Page_No={page+1}")  # page+1로 변경해주기
+        soup = BeautifulSoup(results.text, "html.parser")
+        posts = soup.find("div", {"class": "lists-cnt"}
+                          ).find_all("li", {"class": "list-post"})
+        for post in posts:
+            job = extract_job(post)
+            jobs.append(job)
     return jobs
 
 
@@ -34,8 +34,8 @@ def extract_job(html):
     return {"title": title, "company": company, "apply_link": f"https://www.jobkorea.co.kr/{apply_link}"}
 
 
-def jobKorea_get_jobs():
-    url = "https://www.jobkorea.co.kr/Search/?stext=react"
+def jobKorea_get_jobs(word):
+    url = f"https://www.jobkorea.co.kr/Search/?stext={word}"
     last_page = extract_last_page(url)
     jobs = extract_jobs(url, last_page)
     return jobs
